@@ -1,4 +1,4 @@
-package com.emooc.yunketang.view.view;
+package com.emooc.yunketang.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

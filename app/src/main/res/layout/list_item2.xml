@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"></com.emooc.yunketang.view.ItemHeadView>
     <com.emooc.yunketang.view.ItemView
         android:id="@+id/item12"
-
+        emooc:itemType="heightFull"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <!--emooc:itemType="widthFull"-->

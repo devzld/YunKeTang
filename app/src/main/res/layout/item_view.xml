@@ -27,7 +27,7 @@
          android:layout_height="wrap_content"
          android:scaleType="fitXY"
          android:src="@mipmap/default_course_poster_big" />-->
-    <com.emooc.yunketang.view.view.MyImageView
+    <com.emooc.yunketang.view.MyImageView
         android:id="@+id/imageview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
