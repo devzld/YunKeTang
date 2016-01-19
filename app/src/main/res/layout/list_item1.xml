@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:orientation="vertical">
+    <com.emooc.yunketang.view.ItemHeadView
+        android:id="@+id/h1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.emooc.yunketang.view.ItemHeadView>
+<LinearLayout
+
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.emooc.yunketang.view.ItemView
+        android:id="@+id/item11"
+        android:layout_marginRight="2dp"
+        android:background="@color/grey"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <com.emooc.yunketang.view.ItemView
+        android:id="@+id/item21"
+        android:layout_marginLeft="2dp"
+        android:background="@color/grey"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.emooc.yunketang.view.ItemView
+            android:id="@+id/item31"
+            android:layout_marginRight="2dp"
+            android:background="@color/grey"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <com.emooc.yunketang.view.ItemView
+            android:id="@+id/item41"
+            android:layout_marginLeft="2dp"
+            android:background="@color/grey"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        </LinearLayout>
+    <com.emooc.yunketang.view.ItemView
+        android:id="@+id/item51"
+        android:layout_marginTop="4dp"
+       
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <include layout="@layout/list_item_bottom" android:id="@+id/b1"/>
+</LinearLayout>

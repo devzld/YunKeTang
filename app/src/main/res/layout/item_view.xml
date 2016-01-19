@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/itemselect"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+    <!--android:background="@drawable/itemselect"-->
+    <!--<com.emooc.yunketang.view.view.AspectRatioImageView-->
+    <!--android:id="@+id/imageview"-->
+    <!--android:src="@mipmap/default_course_poster_big"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:adjustViewBounds="true" />-->
+
+    <!-- <com.emooc.yunketang.view.AspectRatioImageView
+         pre:aspectRatio="0.5625"
+         pre:aspectRatioEnabled="true"
+
+         android:id="@+id/imageview"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:scaleType="fitXY"
+         android:src="@mipmap/default_course_poster_big" />-->
+    <com.emooc.yunketang.view.view.MyImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+
+        />
+
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="标题"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="5dp"
+        android:text="￥39.00"
+
+        android:textColor="@color/red" />
+</LinearLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:orientation="vertical">
+    <com.emooc.yunketang.view.ItemHeadView
+        android:id="@+id/h3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.emooc.yunketang.view.ItemHeadView>
+    <com.emooc.yunketang.view.ItemView
+        android:id="@+id/item13"
+        
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.emooc.yunketang.view.ItemView
+        android:id="@+id/item23"
+        android:layout_marginTop="4dp"
+        
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.emooc.yunketang.view.ItemView
+        android:id="@+id/item33"
+        android:layout_marginTop="4dp"
+        
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/list_item_bottom" android:id="@+id/b3"/>
+
+</LinearLayout>

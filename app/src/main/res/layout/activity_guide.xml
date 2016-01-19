@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_guide"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.emooc.yunketang.activity.GuideActivity">
+  <ImageView
+      android:layout_alignParentBottom="true"
+      android:layout_marginBottom="30dp"
+      android:layout_centerHorizontal="true"
+      android:id="@+id/iv_logo"
+      android:src="@mipmap/logo_green"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content" />
+    <ProgressBar
+        android:visibility="invisible"
+        android:id="@+id/pb_guide"
+
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
