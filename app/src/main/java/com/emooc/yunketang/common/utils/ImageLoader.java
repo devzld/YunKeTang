@@ -57,6 +57,8 @@ public class ImageLoader {
         }
     }
 
+
+
     private Bitmap getBitmapByUrl(String urlString) {
         Bitmap bitmap;
         InputStream is = null;
@@ -89,6 +91,8 @@ public class ImageLoader {
             mImageView = imageView;
             mUrl = url;
         }
+
+
 
         @Override
         protected Bitmap doInBackground(String... params) {

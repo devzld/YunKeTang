@@ -8,5 +8,8 @@
             <enum name="heightFull" value="2"/>
 
         </attr>
+        <attr name="imageType">
+            <enum name="heightFull" value="1"/>
+        </attr>
     </declare-styleable>
 </resources>

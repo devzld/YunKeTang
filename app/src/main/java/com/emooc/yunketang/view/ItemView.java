@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,6 +25,7 @@ public class ItemView extends LinearLayout {
     private TextView textView2;
     private LinearLayout ll;
     private int itemType = 0;
+    private int imageType = 0;
 
     public ItemView(Context context) {
         this(context, null);
@@ -41,9 +41,10 @@ public class ItemView extends LinearLayout {
         initView(context);
     }
 
-    private void init(Context context,AttributeSet attrs) {
-        TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.ItemView);
-        itemType = a.getInt(R.styleable.ItemView_itemType,0);
+    private void init(Context context, AttributeSet attrs) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ItemView);
+        itemType = a.getInt(R.styleable.ItemView_itemType, 0);
+        imageType = a.getInt(R.styleable.ItemView_imageType,0);
         a.recycle();
     }
 
@@ -56,12 +57,21 @@ public class ItemView extends LinearLayout {
         imageView = (MyImageView) view.findViewById(R.id.imageview);
         textView = (TextView) view.findViewById(R.id.textview1);
         textView2 = (TextView) view.findViewById(R.id.textview2);
-       if(itemType==1){
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.gravity = Gravity.CENTER_HORIZONTAL;
-        textView.setLayoutParams(params);
-        textView2.setLayoutParams(params);
+        if (itemType == 1) {
+//        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        params.gravity = Gravity.CENTER_HORIZONTAL;
+//        textView.setLayoutParams(params);
+//        textView2.setLayoutParams(params);
+            textView.setGravity(Gravity.CENTER_HORIZONTAL);
+            textView2.setGravity(Gravity.CENTER_HORIZONTAL);
+
         }
+        if(imageType==1){
+            imageView.setType(1);
+
+            this.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT));
+        }
+
 
         this.addView(view);
     }
@@ -70,7 +80,7 @@ public class ItemView extends LinearLayout {
 //        return this.imageView;
 //    }
 
-    public MyImageView getImageView(){
+    public MyImageView getImageView() {
         return this.imageView;
     }
 
@@ -86,7 +96,7 @@ public class ItemView extends LinearLayout {
 
         textView.setText(item.getTitle());
         textView2.setText(item.getPrice());
-        ImageLoader.getInstance().showBitmap(item.getImageUrl(),imageView);
+        ImageLoader.getInstance().showBitmap(item.getImageUrl(), imageView);
 
     }
 

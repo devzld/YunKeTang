@@ -7,6 +7,23 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context="com.emooc.yunketang.activity.MainActivity">
+  <!--  <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        ptr:ptrDrawable="@mipmap/ptr_flip_arrow"
+        ptr:ptrAnimationStyle="flip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/listview_header"/>
+        <com.emooc.yunketang.view.WrapListView
+            android:id="@+id/refresh_lv"
+            android:divider="@color/grey"
+            android:dividerHeight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.emooc.yunketang.view.WrapListView>
+
+
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>-->
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/refresh_lv"

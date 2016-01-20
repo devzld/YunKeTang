@@ -1,18 +1,21 @@
 package com.emooc.yunketang.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.emooc.yunketang.R;
+import com.emooc.yunketang.common.entity.CateEntity;
 import com.emooc.yunketang.common.entity.WellCourseEntity;
 import com.emooc.yunketang.view.ItemHeadView;
 import com.emooc.yunketang.view.ItemView;
+import com.emooc.yunketang.view.SlideShowView;
+import com.emooc.yunketang.view.WrapGridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,14 +35,21 @@ public class WellCourseAdapter extends BaseAdapter {
     Context mContext;
     private List<WellCourseEntity> mList = new ArrayList<>();
 
+   // private ArrayList<CateEntity> mGvList;
+    private GvHeaderAdapter adapter;
+
+    private String[] mImageUrls;
+
     public WellCourseAdapter(Context context) {
 
         mContext = context;
         inflater = LayoutInflater.from(context);
     }
 
-    public void setData( List<WellCourseEntity> list){
+    public void setData( List<WellCourseEntity> list,ArrayList<CateEntity> gvList,String[] imageUrls){
+        mImageUrls = imageUrls;
         mList.addAll(list);
+        adapter = new GvHeaderAdapter(mContext,gvList);
         this.notifyDataSetChanged();
     }
 
@@ -79,6 +89,14 @@ public class WellCourseAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
 
             switch (type) {
+                case 0:
+                    convertView = inflater.inflate(R.layout.listview_header,null);
+                    viewHolder.gv_header = (WrapGridView) convertView.findViewById(R.id.gv_list_header);
+                    viewHolder.vp_header = (SlideShowView) convertView.findViewById(R.id.ssv_header);
+                    viewHolder.gv_header.setAdapter(adapter);
+                    //viewHolder.vp_header.setData(mImageUrls);
+                    Log.i(TAG, "getView: setAdapter");
+                    break;
                 case 1:
                     convertView = inflater.inflate(R.layout.list_item1, null);
 
@@ -97,26 +115,28 @@ public class WellCourseAdapter extends BaseAdapter {
 
             }
 
+            if(type!=0){
+                viewHolder.itemHeadView = (ItemHeadView) convertView.findViewById(ids[type-1][0]);
 
-            viewHolder.itemHeadView = (ItemHeadView) convertView.findViewById(ids[type-1][0]);
+                RelativeLayout rlbottom = (RelativeLayout) convertView.findViewById(ids[type-1][1]);
+                viewHolder.bottomTv = (TextView) rlbottom.findViewById(R.id.bottom_tv);
 
-            RelativeLayout rlbottom = (RelativeLayout) convertView.findViewById(ids[type-1][1]);
-            viewHolder.bottomTv = (TextView) rlbottom.findViewById(R.id.bottom_tv);
+                viewHolder.itemView1 = (ItemView) convertView.findViewById(ids[type-1][2]);
+                viewHolder.itemView2 = (ItemView) convertView.findViewById(ids[type-1][3]);
+                viewHolder.itemView3 = (ItemView) convertView.findViewById(ids[type-1][4]);
 
-            viewHolder.itemView1 = (ItemView) convertView.findViewById(ids[type-1][2]);
-            viewHolder.itemView2 = (ItemView) convertView.findViewById(ids[type-1][3]);
-            viewHolder.itemView3 = (ItemView) convertView.findViewById(ids[type-1][4]);
+                viewHolder.itemView4 = (ItemView) convertView.findViewById(ids[type-1][5]);
+                viewHolder.itemView5 = (ItemView) convertView.findViewById(ids[type-1][6]);
 
-            viewHolder.itemView4 = (ItemView) convertView.findViewById(ids[type-1][5]);
-            viewHolder.itemView5 = (ItemView) convertView.findViewById(ids[type-1][6]);
-
-            viewHolder.itemView1.getImageView().setTag(entity.list.get(0).getImageUrl());
-            viewHolder.itemView2.getImageView().setTag(entity.list.get(1).getImageUrl());
-            viewHolder.itemView3.getImageView().setTag(entity.list.get(2).getImageUrl());
-            if(type!=3) {
-                viewHolder.itemView4.getImageView().setTag(entity.list.get(3).getImageUrl());
-                viewHolder.itemView5.getImageView().setTag(entity.list.get(4).getImageUrl());
+                viewHolder.itemView1.getImageView().setTag(entity.list.get(0).getImageUrl());
+                viewHolder.itemView2.getImageView().setTag(entity.list.get(1).getImageUrl());
+                viewHolder.itemView3.getImageView().setTag(entity.list.get(2).getImageUrl());
+                if(type!=3) {
+                    viewHolder.itemView4.getImageView().setTag(entity.list.get(3).getImageUrl());
+                    viewHolder.itemView5.getImageView().setTag(entity.list.get(4).getImageUrl());
+                }
             }
+
 
 
             convertView.setTag(viewHolder);
@@ -126,7 +146,9 @@ public class WellCourseAdapter extends BaseAdapter {
 
         }
 //            WellCourseEntity entity = mList.get(position);
-
+            if(type==0){
+                return convertView;
+            }
 
             viewHolder.itemView1.setData(entity.list.get(0));
             viewHolder.itemView2.setData(entity.list.get(1));
@@ -136,6 +158,9 @@ public class WellCourseAdapter extends BaseAdapter {
 
             viewHolder.bottomTv.setText(entity.getBottomDes());
             switch (type) {
+                case 0:
+
+                    break;
                 case 1:
                     viewHolder.itemView4.setData(entity.list.get(3));
                     viewHolder.itemView5.setData(entity.list.get(4));
@@ -166,7 +191,8 @@ public class WellCourseAdapter extends BaseAdapter {
         ItemView itemView3;
         ItemView itemView4;
         ItemView itemView5;
-        Button textView;
+        SlideShowView vp_header;
+        WrapGridView gv_header;
         //ItemView itemView6;
 
     }
