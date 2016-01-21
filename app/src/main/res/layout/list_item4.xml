@@ -4,10 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp">
-
+    >
+    <View
+        android:background="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <com.emooc.yunketang.view.ItemHeadView
         android:id="@+id/h4"
         android:layout_width="match_parent"
@@ -84,4 +92,5 @@
     <include
         android:id="@+id/b4"
         layout="@layout/list_item_bottom" />
+    </LinearLayout>
 </LinearLayout>

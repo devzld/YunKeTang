@@ -1,11 +1,14 @@
 package com.emooc.yunketang.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,8 +17,8 @@ import com.emooc.yunketang.common.entity.CateEntity;
 import com.emooc.yunketang.common.entity.WellCourseEntity;
 import com.emooc.yunketang.view.ItemHeadView;
 import com.emooc.yunketang.view.ItemView;
-import com.emooc.yunketang.view.SlideShowView;
 import com.emooc.yunketang.view.WrapGridView;
+import com.emooc.yunketang.view.viewpager.MyImgScroll;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,14 +95,13 @@ public class WellCourseAdapter extends BaseAdapter {
                 case 0:
                     convertView = inflater.inflate(R.layout.listview_header,null);
                     viewHolder.gv_header = (WrapGridView) convertView.findViewById(R.id.gv_list_header);
-                    viewHolder.vp_header = (SlideShowView) convertView.findViewById(R.id.ssv_header);
-//                    viewHolder.as_vp = (AutoScrollViewPager) convertView.findViewById(R.id.as_vp);
-//                    viewHolder.as_vp.setAdapter(new VpHeaderAdapter(mContext, mImageUrls));
-//
-//                    viewHolder.as_vp.setSlideBorderMode(AutoScrollViewPager.SLIDE_BORDER_MODE_CYCLE);
-//                    viewHolder.as_vp.setStopScrollWhenTouch(true);
-//
-//                    viewHolder.as_vp.startAutoScroll();
+                    viewHolder.myPager = (MyImgScroll) convertView.findViewById(R.id.myvp);
+                    LinearLayout ovalLayout = (LinearLayout) convertView.findViewById(R.id.vb);
+                    ArrayList<View> listViews = InitViewPager(mContext);
+//开始滚动
+                    viewHolder.myPager.start((Activity)mContext, listViews, 4000, ovalLayout,
+                            R.layout.ad_bottom_item, R.id.ad_item_v,
+                            R.mipmap.icon_recommend_indicator_active, R.mipmap.icon_recommend_indicator);
                     viewHolder.gv_header.setAdapter(adapter);
                     Log.i(TAG, "getView: setAdapter");
                     break;
@@ -188,6 +190,25 @@ public class WellCourseAdapter extends BaseAdapter {
         return convertView;
     }
 
+    private ArrayList<View> InitViewPager(Context context) {
+        ArrayList<View> listViews = new ArrayList<View>();
+        int[] imageResId = new int[] { R.drawable.a, R.drawable.b,
+                R.drawable.c, R.drawable.d, R.drawable.e ,R.drawable.a, R.drawable.b,
+                R.drawable.c, R.drawable.d, R.drawable.e};
+        for (int i = 0; i < imageResId.length; i++) {
+            ImageView imageView = new ImageView(context);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {// 设置图片点击事件
+
+                }
+            });
+            imageView.setImageResource(imageResId[i]);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            listViews.add(imageView);
+        }
+        return listViews;
+    }
+
     class ViewHolder {
         ItemHeadView itemHeadView;
         TextView bottomTv;
@@ -197,8 +218,7 @@ public class WellCourseAdapter extends BaseAdapter {
         ItemView itemView3;
         ItemView itemView4;
         ItemView itemView5;
-        SlideShowView vp_header;
-//        AutoScrollViewPager as_vp;
+        MyImgScroll myPager;
         WrapGridView gv_header;
         //ItemView itemView6;
 

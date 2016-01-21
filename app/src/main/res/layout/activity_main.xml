@@ -27,8 +27,7 @@
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
         android:id="@+id/refresh_lv"
-        android:divider="@color/grey"
-        android:dividerHeight="10dp"
+        android:divider="@null"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         ptr:ptrDrawable="@mipmap/ptr_flip_arrow"
