@@ -108,7 +108,9 @@ public class MainActivity extends BaseActivity {
         gvList = new ArrayList<CateEntity>();
         int gvc = 0;
         for(int i=0;i<8;i++){
-            CateEntity entity = new CateEntity("编程语言"+gvc,"http://i4.tietuku.com/14cd1581980fdf94s.png");
+//            CateEntity entity = new CateEntity("编程语言"+gvc,"http://i4.tietuku.com/14cd1581980fdf94s.png");
+            CateEntity entity = new CateEntity("编程语言"+gvc,"http://pfile.cn/gegetv");
+
             gvList.add(entity);
             gvc++;
         }

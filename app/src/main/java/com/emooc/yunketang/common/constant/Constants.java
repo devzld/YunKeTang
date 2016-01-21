@@ -19,6 +19,34 @@ public class Constants {
 
     // 一堆图片链接
     public static final String[] IMAGES = new String[] {
+            "http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k",
+            "http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
+            "http://pfile.cn/pwr97k",
+
+
+
+
+
+
+
+
+
+
+
+
             "http://i12.tietuku.com/b25bd37028a74bd2s.jpg",
             "http://i12.tietuku.com/1882ae0853b5f57bs.jpg",
             "http://i12.tietuku.com/621975cd2a7141a8s.jpg",

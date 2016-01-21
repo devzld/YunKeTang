@@ -3,6 +3,7 @@ package com.emooc.yunketang.common.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.util.LruCache;
 import android.widget.ImageView;
 
@@ -16,12 +17,14 @@ import java.net.URL;
  * Created by BZT on 2016/1/19.
  */
 public class ImageLoader {
+    private static final String TAG = "ImageLoader";
     private static  ImageLoader imageLoader;
     private LruCache<String,Bitmap> cache;
 
     private ImageLoader(){
         int maxMemory = (int) Runtime.getRuntime().maxMemory();
         int cacheSize = maxMemory/4;
+        Log.i(TAG, "ImageLoader: cacheSize"+cacheSize);
         cache = new LruCache<String,Bitmap>(cacheSize){
             @Override
             protected int sizeOf(String key, Bitmap value) {
@@ -65,7 +68,9 @@ public class ImageLoader {
         try {
             URL url = new URL(urlString);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+           // Log.i(TAG, "getBitmapByUrl: connection"+connection.getResponseCode()+"");
             is = new BufferedInputStream(connection.getInputStream());
+            Log.i(TAG, "getBitmapByUrl: is"+is);
             bitmap = BitmapFactory.decodeStream(is);
             connection.disconnect();
             return bitmap;
@@ -103,7 +108,10 @@ public class ImageLoader {
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
-            addBitmapToCahce(mUrl,bitmap);
+            Log.i(TAG, "onPostExecute: bitmap=" + mUrl + "," + bitmap);
+            if(bitmap!=null) {
+                addBitmapToCahce(mUrl, bitmap);
+            }
             if(mImageView.getTag().equals(mUrl)){
                 mImageView.setImageBitmap(bitmap);
             }
