@@ -3,11 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <!--<com.emooc.yunketang.view.viewpager.AutoScrollViewPager-->
+
+        <!--android:id="@+id/as_vp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp" />-->
     <com.emooc.yunketang.view.SlideShowView
         android:id="@+id/ssv_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#303030"/>
+      />
     <com.emooc.yunketang.view.WrapGridView
         android:layout_marginTop="20dp"
         android:numColumns="4"

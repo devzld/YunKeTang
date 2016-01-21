@@ -93,8 +93,14 @@ public class WellCourseAdapter extends BaseAdapter {
                     convertView = inflater.inflate(R.layout.listview_header,null);
                     viewHolder.gv_header = (WrapGridView) convertView.findViewById(R.id.gv_list_header);
                     viewHolder.vp_header = (SlideShowView) convertView.findViewById(R.id.ssv_header);
+//                    viewHolder.as_vp = (AutoScrollViewPager) convertView.findViewById(R.id.as_vp);
+//                    viewHolder.as_vp.setAdapter(new VpHeaderAdapter(mContext, mImageUrls));
+//
+//                    viewHolder.as_vp.setSlideBorderMode(AutoScrollViewPager.SLIDE_BORDER_MODE_CYCLE);
+//                    viewHolder.as_vp.setStopScrollWhenTouch(true);
+//
+//                    viewHolder.as_vp.startAutoScroll();
                     viewHolder.gv_header.setAdapter(adapter);
-                    //viewHolder.vp_header.setData(mImageUrls);
                     Log.i(TAG, "getView: setAdapter");
                     break;
                 case 1:
@@ -192,6 +198,7 @@ public class WellCourseAdapter extends BaseAdapter {
         ItemView itemView4;
         ItemView itemView5;
         SlideShowView vp_header;
+//        AutoScrollViewPager as_vp;
         WrapGridView gv_header;
         //ItemView itemView6;
 
