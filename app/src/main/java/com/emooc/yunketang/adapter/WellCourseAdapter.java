@@ -87,7 +87,7 @@ public class WellCourseAdapter extends BaseAdapter {
         ViewHolder viewHolder;
 
         int type = getItemViewType(position);
-        WellCourseEntity entity = mList.get(position);
+
         if (convertView == null) {
             viewHolder = new ViewHolder();
 
@@ -136,13 +136,8 @@ public class WellCourseAdapter extends BaseAdapter {
                 viewHolder.itemView4 = (ItemView) convertView.findViewById(ids[type-1][5]);
                 viewHolder.itemView5 = (ItemView) convertView.findViewById(ids[type-1][6]);
 
-                viewHolder.itemView1.getImageView().setTag(entity.list.get(0).getImageUrl());
-                viewHolder.itemView2.getImageView().setTag(entity.list.get(1).getImageUrl());
-                viewHolder.itemView3.getImageView().setTag(entity.list.get(2).getImageUrl());
-                if(type!=3) {
-                    viewHolder.itemView4.getImageView().setTag(entity.list.get(3).getImageUrl());
-                    viewHolder.itemView5.getImageView().setTag(entity.list.get(4).getImageUrl());
-                }
+
+
             }
 
 
@@ -153,7 +148,7 @@ public class WellCourseAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
 
         }
-//            WellCourseEntity entity = mList.get(position);
+            WellCourseEntity entity = mList.get(position);
             if(type==0){
                 return convertView;
             }
@@ -161,6 +156,9 @@ public class WellCourseAdapter extends BaseAdapter {
             viewHolder.itemView1.setData(entity.list.get(0));
             viewHolder.itemView2.setData(entity.list.get(1));
             viewHolder.itemView3.setData(entity.list.get(2));
+        viewHolder.itemView1.getImageView().setTag(entity.list.get(0).getImageUrl());
+        viewHolder.itemView2.getImageView().setTag(entity.list.get(1).getImageUrl());
+        viewHolder.itemView3.getImageView().setTag(entity.list.get(2).getImageUrl());
 
             viewHolder.itemHeadView.setData(entity.getHeadName(), entity.getHeadDes());
 
@@ -185,6 +183,10 @@ public class WellCourseAdapter extends BaseAdapter {
                     break;
 
             }
+        if(type!=3) {
+            viewHolder.itemView4.getImageView().setTag(entity.list.get(3).getImageUrl());
+            viewHolder.itemView5.getImageView().setTag(entity.list.get(4).getImageUrl());
+        }
 
 
         return convertView;

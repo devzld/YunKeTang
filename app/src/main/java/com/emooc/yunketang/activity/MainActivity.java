@@ -71,7 +71,7 @@ public class MainActivity extends BaseActivity {
     private void initData() {
         int t=0;
         int count = 1;
-        int cc = 0;
+        int cc = -1;
         //加入空的实体，布局类型为0.
         WellCourseEntity firstEntity = new WellCourseEntity(0,null,null,null,null);
         mList.add(firstEntity);
@@ -82,15 +82,28 @@ public class MainActivity extends BaseActivity {
                 count=1;
             }
             List<WellCourseItem> list = new ArrayList<>();
-            for (int i = 0; i < 5; i++) {
-                cc++;
-                WellCourseItem item = new WellCourseItem("云课堂子项标题", Constants.IMAGES[cc], "http://www.baidu.com", "￥100.00");
-                list.add(item);
+            if(count==3){
+                for (int i = 0; i < 3; i++) {
+                    cc++;
+                    WellCourseItem item = new WellCourseItem("云课堂子项标题", Constants.IMAGES[cc], "http://www.baidu.com", "￥100.00");
+                    list.add(item);
+                }
+            }else{
+                for (int i = 0; i < 5; i++) {
+                    cc++;
+                    WellCourseItem item = new WellCourseItem("云课堂子项标题", Constants.IMAGES[cc], "http://www.baidu.com", "￥100.00");
+                    list.add(item);
+                }
             }
+
             WellCourseEntity entity = new WellCourseEntity(count, "免费好课"+t, "简笔画速成", "免费排行榜", list);
             Log.i(TAG, "initData-hash: "+entity.getHashValue());
             mList.add(entity);
         }
+
+
+
+
 
         gvList = new ArrayList<CateEntity>();
         int gvc = 0;
