@@ -35,7 +35,7 @@ public class MyImgScroll extends ViewPager {
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-		Log.i(TAG, "onMeasure: "+widthSize);
+//		Log.i(TAG, "onMeasure: "+widthSize);
 		setMeasuredDimension(widthSize,widthSize/2);
 		for(int i=0;i<getChildCount();i++){
 			ViewGroup.LayoutParams lp = getChildAt(i).getLayoutParams();
@@ -185,12 +185,29 @@ public class MyImgScroll extends ViewPager {
 			return Integer.MAX_VALUE;
 		}
 
-		public Object instantiateItem(View v, int i) {
-			if (((ViewPager) v).getChildCount() == mListViews.size()) {
-				((ViewPager) v)
-						.removeView(mListViews.get(i % mListViews.size()));
+		public Object instantiateItem(ViewGroup v, int i) {
+			if ( v.getChildCount() == mListViews.size()) {
+				 v.removeView(mListViews.get(i % mListViews.size()));
 			}
-			((ViewPager) v).addView(mListViews.get(i % mListViews.size()), 0);
+			Log.i(TAG, "instantiateItem: getChildAt"+((ViewPager) v).getChildAt(i-1));
+//			if(((ViewPager) v).getChildAt(i-1)!=null){
+//
+//				((ViewPager) v)
+//						.removeView(mListViews.get(i - 1));
+//			}
+			Log.i(TAG, "instantiateItem: getParent"+mListViews.get(i % mListViews.size()).getParent());
+//			if(mListViews.get(i % mListViews.size()).getParent()!=null){
+//				MyImgScroll my = (MyImgScroll) mListViews.get(i % mListViews.size()).getParent();
+//				my.removeView(mListViews.get(i % mListViews.size()));
+//			}
+
+//			for(View iv:mListViews){
+//				ViewGroup p = (ViewGroup) iv.getParent();
+//				if(p!=null){
+//					p.removeAllViewsInLayout();
+//				}
+//			}
+			v.addView(mListViews.get(i % mListViews.size()), 0);
 			return mListViews.get(i % mListViews.size());
 		}
 

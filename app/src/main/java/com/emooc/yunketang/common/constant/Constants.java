@@ -19,31 +19,6 @@ public class Constants {
 
     // 一堆图片链接
     public static final String[] IMAGES = new String[] {
-            "http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k",
-            "http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k","http://pfile.cn/i5fvjb",
-            "http://pfile.cn/pwr97k",
-
-
-
-
-
-
-
-
-
 
 
 
