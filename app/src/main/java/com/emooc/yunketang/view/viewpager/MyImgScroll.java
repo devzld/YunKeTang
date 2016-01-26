@@ -6,7 +6,6 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -43,16 +42,20 @@ public class MyImgScroll extends ViewPager {
 			lp.height = widthSize/2;
 			getChildAt(i).setLayoutParams(lp);
 		}
-		measureChildren(widthMeasureSpec,heightMeasureSpec);
+		measureChildren(widthMeasureSpec, heightMeasureSpec);
 	}
 
+	/**
+	 * @param context
+	 * @param attrs
+	 */
 	public MyImgScroll(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
 	/**
 	 * 开始广告滚动
-	 * 
+	 *
 	 * @param mainActivity
 	 *            显示广告的主界面
 	 * @param imgList
@@ -115,7 +118,7 @@ public class MyImgScroll extends ViewPager {
 			//选中第一个
 			ovalLayout.getChildAt(0).findViewById(ovalLayoutItemId)
 			.setBackgroundResource(focusedId);
-			this.setOnPageChangeListener(new OnPageChangeListener() {
+			this.addOnPageChangeListener(new OnPageChangeListener() {
 				public void onPageSelected(int i) {
 					curIndex = i % mListViews.size();
                     //取消圆点选中
@@ -172,6 +175,12 @@ public class MyImgScroll extends ViewPager {
 	// 适配器 //循环设置
 	private class MyPagerAdapter extends PagerAdapter {
 		public void finishUpdate(View arg0) {
+			super.finishUpdate(arg0);
+		}
+
+		@Override
+		public void finishUpdate(ViewGroup container) {
+			super.finishUpdate(container);
 		}
 
 		public void notifyDataSetChanged() {
@@ -189,24 +198,7 @@ public class MyImgScroll extends ViewPager {
 			if ( v.getChildCount() == mListViews.size()) {
 				 v.removeView(mListViews.get(i % mListViews.size()));
 			}
-			Log.i(TAG, "instantiateItem: getChildAt"+((ViewPager) v).getChildAt(i-1));
-//			if(((ViewPager) v).getChildAt(i-1)!=null){
-//
-//				((ViewPager) v)
-//						.removeView(mListViews.get(i - 1));
-//			}
-			Log.i(TAG, "instantiateItem: getParent"+mListViews.get(i % mListViews.size()).getParent());
-//			if(mListViews.get(i % mListViews.size()).getParent()!=null){
-//				MyImgScroll my = (MyImgScroll) mListViews.get(i % mListViews.size()).getParent();
-//				my.removeView(mListViews.get(i % mListViews.size()));
-//			}
 
-//			for(View iv:mListViews){
-//				ViewGroup p = (ViewGroup) iv.getParent();
-//				if(p!=null){
-//					p.removeAllViewsInLayout();
-//				}
-//			}
 			v.addView(mListViews.get(i % mListViews.size()), 0);
 			return mListViews.get(i % mListViews.size());
 		}
@@ -216,16 +208,21 @@ public class MyImgScroll extends ViewPager {
 		}
 
 		public void restoreState(Parcelable arg0, ClassLoader arg1) {
+			super.restoreState(arg0, arg1);
 		}
 
 		public Parcelable saveState() {
-			return null;
+			//return null;
+			return super.saveState();
 		}
 
 		public void startUpdate(View arg0) {
+			super.startUpdate(arg0);
 		}
 
-		public void destroyItem(View arg0, int arg1, Object arg2) {
+		@Override
+		public void destroyItem(ViewGroup container, int position, Object object) {
+			container.removeView(mListViews.get(position % mListViews.size()));
 		}
 	}
 }
