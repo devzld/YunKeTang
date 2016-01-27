@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.emooc.yunketang.R;
+import com.emooc.yunketang.activity.HomeActivity;
 import com.emooc.yunketang.activity.MainActivity;
 import com.emooc.yunketang.common.constant.Constants;
 import com.emooc.yunketang.common.utils.PreferencesUtils;
@@ -41,7 +42,7 @@ public class SplashAdapter extends PagerAdapter{
                 @Override
                 public void onClick(View v) {
                     PreferencesUtils.putBoolean(mContext, Constants.IS_FIRST_INSTALL,false);
-                    mContext.startActivity(new Intent(mContext, MainActivity.class));
+                    mContext.startActivity(new Intent(mContext, HomeActivity.class));
                     Activity activity = (Activity) mContext;
                     activity.finish();
                 }

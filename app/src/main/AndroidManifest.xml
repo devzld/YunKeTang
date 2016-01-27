@@ -23,18 +23,20 @@
         </receiver>
 
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.GuideActivity"></activity>
+        <activity android:name=".activity.GuideActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.HomeActivity"
             android:logo="@mipmap/logo"
             android:label="1"
             android:theme="@style/CustomActionBarTheme"
            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <!-- android:theme="@android:style/Theme.Holo.Light" -->

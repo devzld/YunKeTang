@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -174,18 +175,7 @@ public class MyImgScroll extends ViewPager {
 
 	// 适配器 //循环设置
 	private class MyPagerAdapter extends PagerAdapter {
-		public void finishUpdate(View arg0) {
-			super.finishUpdate(arg0);
-		}
 
-		@Override
-		public void finishUpdate(ViewGroup container) {
-			super.finishUpdate(container);
-		}
-
-		public void notifyDataSetChanged() {
-			super.notifyDataSetChanged();
-		}
 
 		public int getCount() {
 			if (mListViews.size() == 1) {// 一张图片时不用流动
@@ -207,18 +197,7 @@ public class MyImgScroll extends ViewPager {
 			return arg0 == (arg1);
 		}
 
-		public void restoreState(Parcelable arg0, ClassLoader arg1) {
-			super.restoreState(arg0, arg1);
-		}
 
-		public Parcelable saveState() {
-			//return null;
-			return super.saveState();
-		}
-
-		public void startUpdate(View arg0) {
-			super.startUpdate(arg0);
-		}
 
 		@Override
 		public void destroyItem(ViewGroup container, int position, Object object) {

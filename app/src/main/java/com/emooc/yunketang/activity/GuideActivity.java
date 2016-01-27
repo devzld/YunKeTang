@@ -51,7 +51,7 @@ public class GuideActivity extends Activity {
                     pb_guide.setProgress(progress);
                     break;
                 case 0x14:
-                    startActivity(new Intent(GuideActivity.this, MainActivity.class));
+                    startActivity(new Intent(GuideActivity.this, HomeActivity.class));
                     GuideActivity.this.finish();
                     break;
             }
